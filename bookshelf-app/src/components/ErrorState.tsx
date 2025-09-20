@@ -39,7 +39,7 @@ export default function ErrorState({
               cursor: "pointer",
             }}
           >
-            Försök igen
+            Försök igen vetja
           </button>
         </div>
       )}

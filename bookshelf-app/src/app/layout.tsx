@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Link from "next/link";
+import { GeistSans } from "geist/font/sans";
+import { Geist, Geist_Mono } from "next/font/google";
 
 export const metadata: Metadata = {
-  title: "Bookshelf",
+  title: "Bokhyllan",
   description: "Sök böcker via Open Library",
-  icons: { icon: "/favicon.ico" },
+  icons: {
+    icon: "/stamp.svg",
+  },
 };
 
 export default function RootLayout({
@@ -13,33 +17,30 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const year = new Date().getFullYear();
+
   return (
-    <html lang="sv">
+    <html lang="sv" className={`${GeistSans.className} antialiased`}>
       <body>
-        {/* Skip to content */}
         <a href="#main" className="skip-link">
           Hoppa till innehåll
         </a>
 
-        {/* Header / Navigation */}
-        <header className="site-header" role="banner">
+        <header className="site-header">
           <div className="container header-inner">
-            <Link href="/" className="brand" aria-label="Bookshelf startsida">
-              📚 Bokhyllan
+            <Link href="/" className="brand" aria-label="Bokhyllan startsida">
+              Bokhyllan
             </Link>
           </div>
         </header>
 
-        {/* Main content */}
-        <main id="main" className="container" role="main" tabIndex={-1}>
+        <main id="main" className="container" tabIndex={-1}>
           {children}
         </main>
 
-        <footer className="site-footer" role="contentinfo">
+        <footer className="site-footer">
           <div className="container">
-            <small>
-              &copy; {new Date().getFullYear()} Library of The Boethius family
-            </small>
+            <small>&copy; {year} Library of The Boethius family</small>
           </div>
         </footer>
       </body>

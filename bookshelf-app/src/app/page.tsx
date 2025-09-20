@@ -27,14 +27,14 @@ export default async function Page({
 
   return (
     <>
-      <h1>Böcker</h1>
+      <h1>Leta efter en bok i vår bokhylla</h1>
       <SearchBar />
-      {!q && <EmptyState message="Sök efter en bok för att börja." />}
+      {!q && <EmptyState message="Sök efter en bok för att börja!" />}
 
       {q && data && (
         <>
           {data.items.length === 0 ? (
-            <EmptyState message={`Inga träffar för “${q}”.`} />
+            <EmptyState message={`Hoppsan! Inga träffar för “${q}”.`} />
           ) : (
             <>
               <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
