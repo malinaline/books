@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Bookshelf",
@@ -16,7 +17,34 @@ export default function RootLayout({
 }) {
   return (
     <html lang="sv">
-      <body>{children}</body>
+      <body>
+        {children}
+        {/* Skip to content */}
+        <a href="#main" className="skip-link">
+          Hoppa till innehåll
+        </a>
+
+        {/* Header / Navigation */}
+        <header className="site-header" role="banner">
+          <div className="container header-inner">
+            <Link href="/" className="brand" aria-label="Bookshelf startsida">
+              📚 Bookshelf
+            </Link>
+            {/* placeholder nav*/}
+          </div>
+        </header>
+        {/* Main content */}
+        <main id="main" className="container" role="main" tabIndex={-1}>
+          {children}
+        </main>
+        <footer className="site-footer" role="contentinfo">
+          <div className="container">
+            <small>
+              &copy; {new Date().getFullYear()}Library of The Boethius family
+            </small>
+          </div>
+        </footer>
+      </body>
     </html>
   );
 }
