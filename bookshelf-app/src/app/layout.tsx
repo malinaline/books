@@ -5,9 +5,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Bookshelf",
   description: "Sök böcker via Open Library",
-  icons: {
-    icon: "/favicon.ico",
-  },
+  icons: { icon: "/favicon.ico" },
 };
 
 export default function RootLayout({
@@ -18,7 +16,6 @@ export default function RootLayout({
   return (
     <html lang="sv">
       <body>
-        {children}
         {/* Skip to content */}
         <a href="#main" className="skip-link">
           Hoppa till innehåll
@@ -28,19 +25,20 @@ export default function RootLayout({
         <header className="site-header" role="banner">
           <div className="container header-inner">
             <Link href="/" className="brand" aria-label="Bookshelf startsida">
-              📚 Bookshelf
+              📚 Bokhyllan
             </Link>
-            {/* placeholder nav*/}
           </div>
         </header>
+
         {/* Main content */}
         <main id="main" className="container" role="main" tabIndex={-1}>
           {children}
         </main>
+
         <footer className="site-footer" role="contentinfo">
           <div className="container">
             <small>
-              &copy; {new Date().getFullYear()}Library of The Boethius family
+              &copy; {new Date().getFullYear()} Library of The Boethius family
             </small>
           </div>
         </footer>
