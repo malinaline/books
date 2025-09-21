@@ -91,3 +91,17 @@ h2 {
 p {
   margin: 0 0 0.75rem;
 }
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+}
+.brand-logo {
+  width: auto;
+  display: block;
+}
+@media (min-width: 640px) {
+  .brand-logo {
+    height: 56px;
+  }
+}
